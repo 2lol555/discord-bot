@@ -1,8 +1,10 @@
+require("dotenv").config();
 const fs = require('fs');
 const Discord = require('discord.js');
 const Client = require('./client/Client');
-const {token} = require('./config.json');
+const {token} = (process.env.API_KEY);
 const {Player} = require('discord-player');
+
 
 const client = new Client();
 client.commands = new Discord.Collection();
@@ -90,4 +92,4 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-client.login(token);
+client.login();
